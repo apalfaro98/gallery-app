@@ -2,9 +2,9 @@ import React from 'react'
 
 const PictureGridItem = ({ title, url }) => {
     return (
-        <div>
+        <li>
             <img src={url} alt={title} className="image" />
-        </div>
+        </li>
     )
 }
 

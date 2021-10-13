@@ -11,15 +11,14 @@ const GaleryApp = () => {
             <h2 className="title">Gallery</h2>
             <NewCategory setCategories={setCategories} />
 
-            <ol className="picture-grid">
-                {
-                    categories.map(category =>
-                        <PictureGrid
-                            category={category}
-                            key={category} />
-                    )
-                }
-            </ol>
+            {
+                categories.map(category =>
+                    <PictureGrid
+                        category={category}
+                        key={category} />
+                )
+            }
+
         </div>
     )
 }

@@ -28,6 +28,10 @@ body{
     background-repeat: no-repeat;
 }
 
+ol{
+    list-style: none;
+}
+
 input{
     border: none;
     outline: none;
@@ -46,7 +50,8 @@ input{
 }
 
 .title{
-    margin: 2rem auto;
+    margin: 0 auto;
+    padding: 2rem;
     text-align: center;
     color: rgba(252, 249, 94, 0.925);
     font-size: 4rem;

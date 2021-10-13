@@ -10,8 +10,6 @@ export const getResults = async (apiKey, category) => {
             url: img.urls.thumb
         }
     })
-
-    console.log(pictures);
     return pictures;
 
 }

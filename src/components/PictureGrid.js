@@ -1,26 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import { getResults } from '../helpers/getResults';
+import React from 'react';
+import { useFetch } from '../hooks/useFetch';
 import PictureGridItem from './PictureGridItem';
 
 const PictureGrid = ({ category }) => {
 
-    const apiKey = '8800O5782N5enkrU598WG87oQ76XrjGMnSpFDNakcQc';
-
-    const [images, setImages] = useState([]);
-
-    useEffect(() => {
-        getResults(apiKey, category)
-            .then(setImages);
-    }, [category]);
+    const { data: images, loading } = useFetch(category);
 
     return (
         <>
-            {images.map(img =>
-                <PictureGridItem
-                    key={img.id}
-                    {...img}
-                />
-            )}
+            {loading && <p>Loading...</p>}
+            <ol className="picture-grid">
+                {images.map(img =>
+                    <PictureGridItem
+                        key={img.id}
+                        {...img}
+                    />
+                )}
+            </ol>
         </>
     )
 }
