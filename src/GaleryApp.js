@@ -4,19 +4,17 @@ import PictureGrid from './components/PictureGrid';
 
 const GaleryApp = () => {
 
-    const [categories, setCategories] = useState(['']);
+    const [category, setCategory] = useState('');
 
     return (
         <div className="container">
             <h2 className="title">Gallery</h2>
-            <NewCategory setCategories={setCategories} />
+            <NewCategory setCategory={setCategory} />
 
             {
-                categories.map(category =>
-                    <PictureGrid
-                        category={category}
-                        key={category} />
-                )
+                <PictureGrid
+                    category={category}
+                    key={category} />
             }
 
         </div>

@@ -8,17 +8,38 @@ export const useFetch = (category) => {
 
     const [state, setState] = useState({
         data: [],
-        loading: true
+        loading: true,
+        unableToConnect: false,
+        notFound: false
     });
 
 
 
     useEffect(() => {
         getResults(apiKey, category)
-            .then(img => {
+            .then(data => {
+                if (data === 404) {
+                    setState({
+                        data: [],
+                        loading: false,
+                        unableToConnect: false,
+                        notFound: true
+                    })
+                } else {
+                    setState({
+                        data,
+                        loading: false,
+                        unableToConnect: false,
+                        notFound: false
+                    })
+                }
+            })
+            .catch(() => {
                 setState({
-                    data: img,
-                    loading: false
+                    data: [],
+                    loading: false,
+                    unableToConnect: true,
+                    notFound: false
                 })
             });
     }, [category])
