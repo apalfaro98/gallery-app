@@ -101,12 +101,14 @@ p{
 .picture-grid{
     column-width: 202px;
     text-align: center;
+    animation: fadeIn 2s ease-out;
 }
 
 .image{
     margin: 1rem;
     border-radius: 1.5rem;
     overflow: hidden;
+
 }
 
 .lds-roller {
@@ -191,5 +193,17 @@ p{
     }
     100% {
       transform: rotate(360deg);
+    }
+  }
+
+  @keyframes fadeIn {
+    0%{
+      opacity: 0;
+    }
+    80%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
     }
   }
